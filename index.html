@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maisa Lopes da Silva | Virtual2</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f7f6;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        header {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #063b2b, #087f5b, #12a878);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before,
+        header::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+
+        header::before {
+            width: 400px;
+            height: 400px;
+            top: -150px;
+            left: -120px;
+        }
+
+        header::after {
+            width: 500px;
+            height: 500px;
+            bottom: -250px;
+            right: -150px;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.1rem, 3vw, 1.7rem);
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: auto;
+            opacity: 0.92;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 13px 28px;
+            background: white;
+            color: #087f5b;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #052e22;
+            padding: 14px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #65e6bd;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: #075c43;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #607d76;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            border-left: 5px solid #0b966c;
+        }
+
+        .card h3 {
+            color: #075c43;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            display: grid;
+            gap: 12px;
+        }
+
+        .info div {
+            padding: 12px 15px;
+            background: #eef7f4;
+            border-radius: 8px;
+        }
+
+        .info strong {
+            color: #075c43;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .topic {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .topic:hover {
+            transform: translateY(-7px);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .topic h3 {
+            color: #075c43;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #063b2b, #087f5b);
+            color: white;
+        }
+
+        .highlight .section-title h2 {
+            color: white;
+        }
+
+        .highlight .section-title p {
+            color: #d4f5eb;
+        }
+
+        .evaluation {
+            text-align: center;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .evaluation-box {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 35px;
+            border-radius: 20px;
+        }
+
+        .evaluation-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #031f17;
+            color: #c8d8d3;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            .about,
+            .topics {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 60px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- APRESENTAÇÃO -->
+    <header>
+        <div class="hero">
+            <span class="badge">AVALIAÇÃO VIRTUAL 2</span>
+
+            <h1>MAISA LOPES DA SILVA</h1>
+
+            <h2>Técnico em Redes de Computadores</h2>
+
+            <p>
+                Instituto Federal Baiano — IF Baiano
+                <br>
+                Disciplina: Computação em Nuvem e Virtualização
+            </p>
+
+            <a href="#sobre" class="btn">Conheça meu trabalho ↓</a>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#curso">Curso</a>
+        <a href="#disciplina">Disciplina</a>
+        <a href="#avaliacao">Avaliação</a>
+    </nav>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Sobre a Aluna</h2>
+                <p>Apresentação acadêmica</p>
+            </div>
+
+            <div class="about">
+
+                <div class="card">
+                    <h3>👩‍💻 Quem sou eu?</h3>
+
+                    <p>
+                        Olá! Meu nome é <strong>Maisa Lopes da Silva</strong>.
+                        Sou estudante do curso Técnico em Redes de Computadores
+                        do Instituto Federal Baiano.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Esta página foi desenvolvida como parte da disciplina
+                        de <strong>Computação em Nuvem e Virtualização</strong>,
+                        correspondendo à avaliação <strong>Virtual2</strong>.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>📚 Informações Acadêmicas</h3>
+
+                    <div class="info">
+                        <div>
+                            <strong>Nome:</strong> Maisa Lopes da Silva
+                        </div>
+
+                        <div>
+                            <strong>Curso:</strong> Técnico em Redes de Computadores
+                        </div>
+
+                        <div>
+                            <strong>Instituição:</strong> Instituto Federal Baiano
+                        </div>
+
+                        <div>
+                            <strong>Disciplina:</strong> Computação em Nuvem e Virtualização
+                        </div>
+
+                        <div>
+                            <strong>Avaliação:</strong> Virtual2
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CURSO -->
+    <section id="curso" style="background:#eaf3f0;">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Curso Técnico em Redes de Computadores</h2>
+
+                <p>
+                    Formação voltada para tecnologia, comunicação e infraestrutura de redes.
+                </p>
+            </div>
+
+            <div class="topics">
+
+                <div class="topic">
+                    <div class="icon">🌐</div>
+                    <h3>Redes</h3>
+                    <p>
+                        Estudo da comunicação entre dispositivos,
+                        protocolos e infraestrutura de redes.
+                    </p>
+                </div>
+
+                <div class="topic">
+                    <div class="icon">🖥️</div>
+                    <h3>Infraestrutura</h3>
+                    <p>
+                        Conhecimentos sobre servidores, equipamentos,
+                        sistemas e serviços de rede.
+                    </p>
+                </div>
+
+                <div class="topic">
+                    <div class="icon">🔐</div>
+                    <h3>Segurança</h3>
+                    <p>
+                        Princípios relacionados à proteção de redes,
+                        sistemas e informações.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCIPLINA -->
+    <section id="disciplina">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Computação em Nuvem e Virtualização</h2>
+
+                <p>
+                    Tecnologias fundamentais para a infraestrutura computacional moderna.
+                </p>
+            </div>
+
+            <div class="topics">
+
+                <div class="topic">
+                    <div class="icon">☁️</div>
+                    <h3>Computação em Nuvem</h3>
+                    <p>
+                        Utilização de recursos computacionais,
+                        armazenamento e serviços disponibilizados pela internet.
+                    </p>
+                </div>
+
+                <div class="topic">
+                    <div class="icon">⚙️</div>
+                    <h3>Virtualização</h3>
+                    <p>
+                        Criação de ambientes virtuais para executar
+                        diferentes sistemas e aplicações.
+                    </p>
+                </div>
+
+                <div class="topic">
+                    <div class="icon">🚀</div>
+                    <h3>Tecnologia</h3>
+                    <p>
+                        Aplicação de novas tecnologias para tornar
+                        ambientes computacionais mais flexíveis e eficientes.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AVALIAÇÃO -->
+    <section id="avaliacao" class="highlight">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Virtual2</h2>
+                <p>Atividade avaliativa</p>
+            </div>
+
+            <div class="evaluation">
+
+                <div class="evaluation-box">
+
+                    <h3>☁️ Computação em Nuvem e Virtualização</h3>
+
+                    <p>
+                        Esta página faz parte da avaliação Virtual2 da disciplina
+                        de Computação em Nuvem e Virtualização, apresentando
+                        informações acadêmicas da aluna e os principais conceitos
+                        relacionados à área de estudo.
+                    </p>
+
+                    <p style="margin-top:20px;">
+                        <strong>Aluna:</strong> Maisa Lopes da Silva
+                    </p>
+
+                    <p>
+                        <strong>Curso:</strong> Técnico em Redes de Computadores
+                    </p>
+
+                    <p>
+                        <strong>Instituição:</strong> Instituto Federal Baiano
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            © 2026 — <strong>Maisa Lopes da Silva</strong>
+        </p>
+
+        <p>
+            Técnico em Redes de Computadores | Instituto Federal Baiano
+        </p>
+
+        <p style="margin-top:10px;">
+            Computação em Nuvem e Virtualização — Virtual2
+        </p>
+
+    </footer>
+
+</body>
+</html>
